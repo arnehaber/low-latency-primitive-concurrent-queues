@@ -51,6 +51,7 @@
     
     <properties>
         <java.level>1.6</java.level>
+        <test.java.level>1.7</test.java.level>
     </properties>
 
     <dependencies>
@@ -203,6 +204,19 @@
                       <source>${java.level}</source>
                       <target>${java.level}</target>
                     </configuration>
+                    <executions>
+                      <execution>
+                        <id>test-compile</id>
+                        <phase>process-test-sources</phase>
+                        <goals>
+                          <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                          <source>${test.java.level}</source>
+                          <target>${test.java.level}</target>
+                        </configuration>
+                      </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.eluder.coveralls</groupId>
